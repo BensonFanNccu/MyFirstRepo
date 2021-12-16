@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+	<title>Guess number</title>
+</head>
+<body>
+	<script>
+		var rand = Math.floor((Math.random() * 10) + 1);
+		var input = -1;
+		var counter = 0;
+		while(input != rand){
+			input = window.prompt("Guess number from 1 to 10");
+			if(input != rand){
+				counter++;
+				alert('Please try again!');
+			}else{
+				counter++;
+				alert('Congratulations! You guessed ' + counter + ' times!')
+			}
+		}
+	</script>
+</body>
