@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<head>
+	<title>HW5</title>
+</head>
+<body>
+
+	<script>
+		var frequency_1 = 0;
+		var frequency_2 = 0;
+		var frequency_3 = 0;
+		var frequency_4 = 0;
+		var frequency_5 = 0;
+		var frequency_6 = 0;
+		var times = 0;
+
+		function play(){
+			roll();
+		}
+
+		function roll(){
+			var die1Image = document.getElementById("die1");
+			var die2Image = document.getElementById("die2");
+			var die3Image = document.getElementById("die3");
+			var die4Image = document.getElementById("die4");
+			var die5Image = document.getElementById("die5");
+			var die6Image = document.getElementById("die6");
+			var die7Image = document.getElementById("die7");
+			var die8Image = document.getElementById("die8");
+			var die9Image = document.getElementById("die9");
+			var die10Image = document.getElementById("die10");
+			var die11Image = document.getElementById("die11");
+			var die12Image = document.getElementById("die12");
+
+			setImage(die1Image);
+			setImage(die2Image);
+			setImage(die3Image);
+			setImage(die4Image);
+			setImage(die5Image);
+			setImage(die6Image);
+			setImage(die7Image);
+			setImage(die8Image);
+			setImage(die9Image);
+			setImage(die10Image);
+			setImage(die11Image);
+			setImage(die12Image);
+
+		}
+
+		function setImage(dieImg){
+			var rollnumber = rollNumber();
+			dieImg.setAttribute("src", "die" + rollnumber + ".png")
+		}
+
+		function rollNumber(){
+			var rollnumber = Math.floor(Math.random() * 6 + 1);
+			frequency(rollnumber);
+			return rollnumber;
+		}
+
+		function frequency(rollnumber){
+			times += 12;
+			switch(rollnumber){
+				case 1 :
+					frequency_1++;
+					break;
+				case 2 :
+					frequency_2++;
+					break;
+				case 3 :
+					frequency_3++;
+					break;
+				case 4 :
+					frequency_4++;
+					break;
+				case 5 :
+					frequency_5++;
+					break;
+				case 6 :
+					frequency_6++;
+					break;
+			}
+
+			result(frequency_1, frequency_2, frequency_3, frequency_4, frequency_5, frequency_6, times);
+		}
+
+		function result(f1,f2,f3,f4,f5,f6,times){
+			var fre1 = document.getElementById("F1");
+			var fre2 = document.getElementById("F2");
+			var fre3 = document.getElementById("F3");
+			var fre4 = document.getElementById("F4");
+			var fre5 = document.getElementById("F5");
+			var fre6 = document.getElementById("F6");
+
+			var p1 = document.getElementById("P1");
+			var p2 = document.getElementById("P2");
+			var p3 = document.getElementById("P3");
+			var p4 = document.getElementById("P4");
+			var p5 = document.getElementById("P5");
+			var p6 = document.getElementById("P6");
+
+			var per1 = Math.round((f1/times)*100000)/100;
+			var per2 = Math.round((f2/times)*100000)/100;
+			var per3 = Math.round((f3/times)*100000)/100;
+			var per4 = Math.round((f4/times)*100000)/100;
+			var per5 = Math.round((f5/times)*100000)/100;
+			var per6 = Math.round((f6/times)*100000)/100;
+
+			fre1.innerText = f1;
+			fre2.innerText = f2;
+			fre3.innerText = f3;
+			fre4.innerText = f4;
+			fre5.innerText = f5;
+			fre6.innerText = f6;
+
+			p1.innerText = per1 + "%";
+			p2.innerText = per2 + "%";
+			p3.innerText = per3 + "%";
+			p4.innerText = per4 + "%";
+			p5.innerText = per5 + "%";
+			p6.innerText = per6 + "%";
+
+
+
+
+		}
+
+		
+		
+	</script>
+
+	<input type="button" value = "Roll Dice" onclick="roll()">
+	<p>
+		<img id = "die1" src = "die1.png">
+		<img id = "die2" src = "die1.png">
+		<img id = "die3" src = "die1.png">
+		<img id = "die4" src = "die1.png">
+		<img id = "die5" src = "die1.png">
+		<img id = "die6" src = "die1.png">
+	</p>
+	<p>
+		<img id = "die7" src = "die1.png">
+		<img id = "die8" src = "die1.png">
+		<img id = "die9" src = "die1.png">
+		<img id = "die10" src = "die1.png">
+		<img id = "die11" src = "die1.png">
+		<img id = "die12" src = "die1.png">
+	</p>
+	<table id = "result" border="1">
+		<thead>
+			<tr>
+				<th>Face</th>
+				<th>Frequency</th>
+				<th>Percentage</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td id="F1">0</td>
+				<td id="P1">0</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td id="F2">0</td>
+				<td id="P2">0</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td id="F3">0</td>
+				<td id="P3">0</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td id="F4">0</td>
+				<td id="P4">0</td>
+			</tr>
+			<tr>
+				<td>5</td>
+				<td id="F5">0</td>
+				<td id="P5">0</td>
+			</tr>
+			<tr>
+				<td>6</td>
+				<td id="F6">0</td>
+				<td id="P6">0</td>
+			</tr>
+		<tbody>
+	</table>
+
+
+	
+</body>
